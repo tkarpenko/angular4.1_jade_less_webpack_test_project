@@ -1,0 +1,63 @@
+.admin-sidebar(
+  [class.loading]="!channelsLoaded")
+  .admin-sidebar-header.clearfix
+    .admin-sidebar-add-menu(
+      #addMenu,
+      [class.open]="sidebarMenuToggle")
+      button.admin-sidebar-add(
+        type="button",
+        (click)="sidebarMenuToggle = !sidebarMenuToggle")
+        i.pic.add-circle
+      .add-menu
+        button.add-menu-item(
+          type="button") Add New Item
+
+  
+  a.admin-sidebar-all-channel.clearfix(
+    *ngIf="channels.length",
+    [routerLink]="['./all-channels']",
+    routerLinkActive=["active"])
+    .title All Items
+    .count {{channels.length}}
+
+  .admin-sidebar-channels-list
+    .admin-sidebar-channel(
+      *ngFor="let channel of channels; let i = index",
+      [class.open]="listedChannel[channel.id] || searchByName")
+
+      .channel(
+        [class.active]="channel.id === openedChannel",
+        (click)="showChannel(channel, $event)")
+
+        .toggle((click)="toggleChannel(channel.id)")
+        .channel-name {{channel.name}}
+        i.icon.icon-star-filled.star
+        .clearfix
+          .left
+            span.channel-info-type ID:
+            span.channel-info-value {{channel.id}}
+          .right(*ngIf="channel.price")
+            span.channel-info-type Price:
+            span.channel-info-value ${{channel.price}}
+      
+  .admin-sidebar-loading
+    i.icon.icon-spin
+
+.admin-container(
+  [class.no-content]="!channels.length",
+  [class.loading]="!contentLoaded")
+  .admin-header.clearfix
+    .admin-header-dropdown(
+      #accountMenu,
+      (click)="accountMenuToggle = !accountMenuToggle",
+      [class.open]="accountMenuToggle")
+      .dropdown-title Account Info
+      .dropdown-list
+        button.list-item(
+          type="button",
+          (click)="logout()") Log Out
+
+  .admin-content-loading
+    i.icon.icon-spin
+
+  router-outlet

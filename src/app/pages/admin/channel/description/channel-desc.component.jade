@@ -1,0 +1,27 @@
+.admin-content
+  .admin-content-title Description
+  
+  form.popup-form.form(
+      novalidate,
+      (ngSubmit)="submit()",
+      [formGroup]="form")
+
+    .form-fieldset.popup-input-group
+      .popup-input-title Channel Name
+      .popup-input-field
+        input.input(
+          [class.disabled]="!isEditable",
+          type="text",
+          (focus)="anyChanges=true",
+          (input)="anyChanges=true",
+          placeholder="Enter channel name",
+          formControlName="channelName")
+
+    .popup-submit-buttons(*ngIf="isEditable")
+      button.btn.btn-filled-colored.popup-form-submit(
+        type="submit",
+        [disabled]="!anyChanges",
+        [class.disabled]="!anyChanges",
+        [class.submitting]="submitting")
+          i.icon.icon-spin
+          span.popup-form-submit-text Save changes

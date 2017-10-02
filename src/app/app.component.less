@@ -1,0 +1,71 @@
+@import "~assets/less/mixins.less";
+@import "~assets/less/reset.less";
+
+@import "~assets/less/fonts.less";
+@import "~assets/less/pictures.less";
+@import "~assets/less/popup.less";
+@import "~assets/less/components/mobile-date-picker.less";
+@import "~assets/less/ui-elements.less";
+@import "~assets/less/components/daterangepicker.component.less";
+
+body,
+html {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: @greyLight;
+  color: @blueGrey;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+  }  
+}
+
+.layout {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  min-height: 100%;
+  &:after {
+    content: '\e903';
+    display: inline-block;
+    font-family: 'icons';
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -27px;
+    color: #c0c6ce;
+    .animation( spin 1s steps(12) infinite );
+  }
+  &:before {
+    content: '\e929';
+    display: inline-block;
+    font-family: 'icons';
+    font-size: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -81px;
+    margin-top: -81px;
+    color: #c0c6ce;
+  }
+  &.loaded {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}

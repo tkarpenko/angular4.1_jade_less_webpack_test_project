@@ -1,0 +1,9 @@
+.admin-page-header
+  .clearfix
+    .page-title
+      | {{channel.name}}
+  .clearfix
+    .page-tabs
+      a.tab([routerLink]="['./description']", routerLinkActive=["active"]) Description
+
+router-outlet

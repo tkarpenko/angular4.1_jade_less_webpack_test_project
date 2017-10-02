@@ -1,0 +1,117 @@
+@images: "./src/assets/img";
+@imgPath: "assets/images";
+@blue: #2990ea;
+@gray: #727272;
+@green: #6ad04b;
+@formInputGray: #454b55;
+@contentWidth: 913px;
+
+
+@greenLight: #12b49f;
+@greenDark: #129d9f;
+@blueDark: #2a3b49;
+@blueGrey: #41515e;
+@blueGreyLight: #7b858d;
+
+@greyLight: #f9fafc;
+@greyMiddle: #eef2f6;
+@greyDark: #dce4eb;
+@greyDarker: #adbbc7;
+
+@redBright: #ff2e2e;
+@yellowBright: #fac22a;
+@greenBright: #13ce67;
+
+@textDark: #394854;
+
+
+// @grayTextColor: #7b858d;
+
+// @disabledBorder: #dce4eb;
+// @disabledBackground: #f9fafc;
+// @disabledText: #adbbc6;
+
+.font (@color, @size, @align: left, @line_height: inherit, @weight: 400) {
+  color       : @color;
+  font-size   : @size;
+  text-align  : @align;
+  line-height : @line_height;
+  font-weight : @weight;
+}
+
+.transform (@transform) {
+  -webkit-transform : @transform;
+  -moz-transform    : @transform;
+  -o-transform      : @transform;
+  -ms-transform     : @transform;
+  transform         : @transform;
+}
+
+.transition (@props) {
+  // @props: ~`"@{arguments}".replace(/[\[\]]/g, '')`;
+  -webkit-transition : @props;
+  -moz-transition    : @props;
+  -o-transition      : @props;
+  -ms-transition     : @props;
+  transition         : @props;
+}
+
+.animation (@animation) {
+  animation         : @animation;
+  -o-animation      : @animation;
+  -ms-animation     : @animation;
+  -webkit-animation : @animation;
+  -moz-animation    : @animation;
+}
+
+.ellipsis {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  width: 100%;
+}
+
+.gradient (@top_color, @bottom_color) {
+  background: @top_color;
+  background: -moz-linear-gradient(top, @top_color 0%, @bottom_color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@top_color), color-stop(100%,@bottom_color));
+  background: -webkit-linear-gradient(top, @top_color 0%,@bottom_color 100%);
+  background: -o-linear-gradient(top, @top_color 0%,@bottom_color 100%);
+  background: -ms-linear-gradient(top, @top_color 0%,@bottom_color 100%);
+  background: linear-gradient(to bottom, @top_color 0%,@bottom_color 100%);
+}
+
+.diagonal_gradient (@left_top_color, @right_bottom_color) {
+  background: -moz-linear-gradient(-45deg, @left_top_color 0%, @right_bottom_color 100%); 
+  background: -webkit-linear-gradient(-45deg, @left_top_color 0%,@right_bottom_color 100%); 
+  background: linear-gradient(135deg, @left_top_color 0%,@right_bottom_color 100%); 
+  background: -o-linear-gradient(-45deg, @left_top_color 0%, @right_bottom_color 100%);
+  background: -ms-linear-gradient(-45deg, @left_top_color 0%, @right_bottom_color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@left_top_color, endColorstr=@right_bottom_color, GradientType=1 );
+        
+}
+
+.triangle(@size, @color){
+  width: 0; 
+  height: 0; 
+  border-left: @size solid transparent;
+  border-right: @size solid transparent;
+  border-bottom: @size*1.3 solid @color;
+}
+
+.triangle_down(@size, @color){
+  width: 0; 
+  height: 0; 
+  border-left: @size solid transparent;
+  border-right: @size solid transparent;
+  border-top: @size*1.3 solid @color;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}

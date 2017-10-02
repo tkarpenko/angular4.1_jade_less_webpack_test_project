@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+public/
+public
+src/**/*.js
+src/**/*.js.map
+npm-debug.log
+watcher.log
+**/.DS_Store
+.DS_Store
+.idea
